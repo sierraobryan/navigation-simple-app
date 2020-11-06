@@ -2,6 +2,7 @@ package com.sierraobryan.navigation_simple_app.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import com.sierraobryan.navigation_simple_app.R
 
 class MainActivity : AppCompatActivity() {

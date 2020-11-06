@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".ui.secondary.SecondaryActivity"
             android:launchMode="singleTop"/>
+        <activity android:name=".ui.menus.ThirdActivity"
+            android:launchMode="singleTop"/>
     </application>
 
 </manifest>

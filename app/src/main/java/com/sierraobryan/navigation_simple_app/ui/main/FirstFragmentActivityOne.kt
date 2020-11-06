@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sierraobryan.navigation_simple_app.R
 import com.sierraobryan.navigation_simple_app.databinding.FragmentFirstMainBinding
+import com.sierraobryan.navigation_simple_app.ui.menus.ThirdActivity
 import com.sierraobryan.navigation_simple_app.ui.secondary.SecondaryActivity
 
 class FirstFragmentActivityOne: Fragment() {
@@ -40,6 +41,9 @@ class FirstFragmentActivityOne: Fragment() {
         binding.button7.setOnClickListener {
             navigateToEmptyFragmentInNewActivity()
         }
+        binding.button8.setOnClickListener {
+            navigateToMenus()
+        }
         binding.fragmentName.text = this::class.java.simpleName
         return binding.root
     }
@@ -63,13 +67,6 @@ class FirstFragmentActivityOne: Fragment() {
         findNavController().navigate(R.id.action_firstFragment_to_secondFragment_withAnimation_2)
     }
 
-    private fun navigateToSecondFragmentWithDynamicArg2() {
-        findNavController().navigate(
-            FirstFragmentActivityOneDirections
-                .actionFirstFragmentToSecondFragmentWithArg(101L)
-        )
-    }
-
     private fun navigateToEmptyFragmentInNewActivity() {
         val intent = Intent(context, SecondaryActivity::class.java)
         startActivity(intent)
@@ -84,6 +81,11 @@ class FirstFragmentActivityOne: Fragment() {
     private fun navigateToFragmentTwoInNewActivity() {
         val intent = Intent(context, SecondaryActivity::class.java)
         intent.putExtra(SecondaryActivity.SCREEN_ARG, SecondaryActivity.SCREEN.SECOND_SCREEN)
+        startActivity(intent)
+    }
+
+    private fun navigateToMenus() {
+        val intent = Intent(context, ThirdActivity::class.java)
         startActivity(intent)
     }
 
