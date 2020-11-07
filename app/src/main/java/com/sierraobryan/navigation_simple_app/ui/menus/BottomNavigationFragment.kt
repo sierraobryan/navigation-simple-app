@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sierraobryan.navigation_simple_app.R
@@ -23,11 +24,8 @@ class BottomNavigationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navView: BottomNavigationView = view.findViewById(R.id.bottomNavigation)
-        val navController = Navigation.findNavController(requireActivity(), R.id.bottom_nav_host_fragment)
-        navView.setupWithNavController(navController)
-        navView.setOnNavigationItemReselectedListener {
-            // Do nothing -- This prevents consecutive navigation to the same fragment
-        }
+        val bottomNavigation: BottomNavigationView = view.findViewById(R.id.bottomNavigation)
+        val navController = Navigation.findNavController(requireActivity(), R.id.bottomNavFragment)
+        bottomNavigation.setupWithNavController(navController)
     }
 }
